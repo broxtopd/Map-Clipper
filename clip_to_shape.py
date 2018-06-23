@@ -1,10 +1,3 @@
-import sys,os
-import glob
-from osgeo import gdal,osr
-from gdalconst import *
-import subprocess
-from osgeo import ogr
-
 # Takes an input raster and either creates an output raster that shows the extent 
 # of a shapefile as a raster mask (eithe burn a single value, or burn multiple 
 # values corresponding to a shapefile attribute), or make areas outside or inside 
@@ -14,8 +7,34 @@ from osgeo import ogr
 #         clipsrc - the shapefile used to burn the values
 # OUTPUT: dst - the output raster
 #
-# Created by Patrick Broxton (broxtopd@gmail.com)
-# Updated 8/1/2017
+###############################################################################
+# Copyright (c) 2018, Patrick Broxton
+# 
+#  Permission is hereby granted, free of charge, to any person obtaining a
+#  copy of this software and associated documentation files (the "Software"),
+#  to deal in the Software without restriction, including without limitation
+#  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell copies of the Software, and to permit persons to whom the
+#  Software is furnished to do so, subject to the following conditions:
+# 
+#  The above copyright notice and this permission notice shall be included
+#  in all copies or substantial portions of the Software.
+# 
+#  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+#  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+#  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
+###############################################################################
+
+import sys,os
+import glob
+from osgeo import gdal,osr
+from gdalconst import *
+import subprocess
+from osgeo import ogr
 
 ot_list = ('', 'Byte','Int16','UInt16','Int32','UInt32','Float32','Float64','CInt16','CInt32','CFloat32','CFloat64')
 

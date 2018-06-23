@@ -1,8 +1,3 @@
-import sys,os
-from osgeo import gdal,osr
-from gdalconst import *
-import subprocess
-
 # Clips a selected input raster to have the exact same projection, extent, and resolution as another
 # USAGE: python clip_to_raster.py src clipsrc dst
 # INPUTS: src - the raster to reproject
@@ -10,9 +5,34 @@ import subprocess
 # OUTPUT: dst - the output file
 # Important: If the pixels in src and clipsrc do not line up exactly, the pixels in SRS will be resampled
 # To preserve the extents, even if they have the exact same resolution
+#
+###############################################################################
+# Copyright (c) 2018, Patrick Broxton
+# 
+#  Permission is hereby granted, free of charge, to any person obtaining a
+#  copy of this software and associated documentation files (the "Software"),
+#  to deal in the Software without restriction, including without limitation
+#  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell copies of the Software, and to permit persons to whom the
+#  Software is furnished to do so, subject to the following conditions:
+# 
+#  The above copyright notice and this permission notice shall be included
+#  in all copies or substantial portions of the Software.
+# 
+#  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+#  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+#  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
+###############################################################################
 
-# Created by Patrick Broxton (broxtopd@gmail.com)
-# Updated 8/8/2017
+import sys,os
+from osgeo import gdal,osr
+from gdalconst import *
+import subprocess
+
 
 resampling_list = ('average','near','bilinear','cubic','cubicspline','lanczos','mode','max','min','med','Q1','Q3')
 
